@@ -101,8 +101,8 @@ class ListBasicsAnimation(Scene):
             numbers_text.add(number)
 
         array_group = VGroup(squares, numbers_text)
-        array_group.move_to(ORIGIN)
         array_group.scale_to_fit_width(config.frame_width - 2)
+        array_group.move_to(ORIGIN + DOWN * 0.8)  # 向下移动，避免与上方文本重叠
 
         self.play(
             Create(squares),
@@ -141,7 +141,7 @@ class ListBasicsAnimation(Scene):
             font="SimSun",
             color=self.INDEX_COLOR,
             font_size=28
-        ).next_to(subtitle2, DOWN, buff=0.4)
+        ).next_to(subtitle2, DOWN, buff=0.3)
 
         self.play(Write(index_note))
         self.wait(1)
